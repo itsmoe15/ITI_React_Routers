@@ -1,17 +1,11 @@
 import { Outlet, Link } from 'react-router-dom';
 import '../Navbar.module.css'
+import SideBar from './Shop/SideBar';
 
 function Shop() {
   return (
     <div>
-      <aside>
-        <h2>Filter by Category</h2>
-        <ul className="list">
-          <li><Link to="">All</Link></li>
-          <li><Link to="men">Men</Link></li>
-          <li><Link to="women">Women</Link></li>
-        </ul>
-      </aside>
+      <SideBar />
       <section>
         <Outlet />
       </section>

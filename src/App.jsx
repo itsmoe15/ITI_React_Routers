@@ -8,6 +8,8 @@ import All      from './Components/Pages/Shop/All';
 import Men      from './Components/Pages/Shop/Men';
 import Women    from './Components/Pages/Shop/Women';
 import NotFound from './Components/NotFound';
+import Category from './Components/Pages/Shop/Category';
+
 
 function App() {
   let router = createBrowserRouter([
@@ -38,6 +40,10 @@ function App() {
             {
               path: 'women',
               element: <Women />
+            },
+            {
+              path: 'category/:category',
+              element: <Category />
             }
           ]
         },
