@@ -20,7 +20,7 @@ export default function SideBar() {
       <Link to="/shop">All</Link>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {categories.map((category) => (
-        <NavLink key={category.slug} to={`/shop/category/${category.slug}`}>
+        <NavLink key={category.slug} to={`${category.slug}`}>
             {category.name}
           </NavLink>
         ))}
