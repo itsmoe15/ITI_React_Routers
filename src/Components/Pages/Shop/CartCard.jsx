@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../../RTX/Slices/CartSlice';
+import { removeItemFromCart } from '../../../RTX/Slices/CartSlice';
 
-function ProductCard({ product }) {
+function CartCard({ product }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -24,18 +24,20 @@ function ProductCard({ product }) {
       <img src={product.thumbnail} alt={product.title} />
       <h3>{product.title}</h3>
       <div>{product.description}</div>
-      <div>Price: ${product.price}</div>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          dispatch(addItemToCart(product));
-          // alert('Item added to cart!');
-        }}
-      >
-        Add to Cart
-      </button>
+      <div>Quantity: {product.quantity}</div>
+      <div>Total Price: ${product.price * product.quantity}</div>
+
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    dispatch(removeItemFromCart(product.id)); 
+  }}
+>
+  Remove from Cart
+</button>
+
     </div>
   );
 }
 
-export default ProductCard;
+export default CartCard;

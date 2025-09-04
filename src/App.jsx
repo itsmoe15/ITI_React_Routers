@@ -10,6 +10,7 @@ import Women    from './Components/Pages/Shop/Women';
 import NotFound from './Components/NotFound';
 import Category from './Components/Pages/Shop/Category';
 import ProductInfo from './Components/Pages/Shop/ProductInfo';
+import Cart from './Components/Pages/Cart';
 
 function App() {
   let router = createBrowserRouter([
@@ -50,6 +51,10 @@ function App() {
         {
           path: 'product/:id',
           element: <ProductInfo />
+        },
+        {
+          path: 'cart',
+          element: <Cart />
         },
         {
           path: '*',

@@ -1,8 +1,12 @@
-import React from 'react'
+
+import All from './Shop/All.jsx';
+
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <All />
+    </div>
   )
 }
 

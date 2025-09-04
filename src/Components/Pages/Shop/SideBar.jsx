@@ -17,7 +17,7 @@ export default function SideBar() {
   return (
     <aside>
       <h2>Filter by Category</h2>
-      <Link to="/shop">All</Link>
+      <Link to="/shop">All Products</Link>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {categories.map((category) => (
         <NavLink key={category.slug} to={`${category.slug}`}>
