@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { removeItemFromCart } from '../../../RTX/Slices/CartSlice';
+import { addItemToCart, removeItemFromCart, removeProductCompletely } from '../../../RTX/Slices/CartSlice';
 
 function CartCard({ product }) {
   const navigate = useNavigate();
@@ -24,18 +24,37 @@ function CartCard({ product }) {
       <img src={product.thumbnail} alt={product.title} />
       <h3>{product.title}</h3>
       <div>{product.description}</div>
-      <div>Quantity: {product.quantity}</div>
+
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(removeItemFromCart(product.id));
+          }}
+        >
+          -
+        </button>
+        <span>{product.quantity}</span>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(addItemToCart(product));
+          }}
+        >
+          +
+        </button>
+      </div>
+
       <div>Total Price: ${product.price * product.quantity}</div>
 
-<button
-  onClick={(e) => {
-    e.stopPropagation();
-    dispatch(removeItemFromCart(product.id)); 
-  }}
->
-  Remove from Cart
-</button>
-
+      <button
+        onClick={(e) => {
+            e.stopPropagation();
+            dispatch(removeProductCompletely(product.id));
+        }}
+      >
+        Remove from Cart
+      </button>
     </div>
   );
 }
